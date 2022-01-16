@@ -126,7 +126,7 @@ function endGame(isDraw) {
     if (isDraw) {
         endGameMessage.innerText = "It's a Draw !!!"
     } else {
-        endGameMessage.innerHTML = `${circleTurn ? "<img class=\"mark-img\" src=\"./img/o.svg\" />": "<img class=\"mark-img\" src=\"./img/x.svg\" />"} Wins!!!`
+        endGameMessage.innerHTML = `${circleTurn ? "<img class=\"mark-img\" src=\"./img/o.svg\" />": "<img class=\"mark-img\" src=\"./img/x.svg\" />"} Wins!`
     }
     setTimeout(() => {
         endGameInterface.classList.remove("hidden")
