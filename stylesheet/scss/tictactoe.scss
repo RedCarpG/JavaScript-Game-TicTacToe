@@ -1,7 +1,7 @@
 
 :root {
     --cell-size: 100px;
-    --mark-size: calc(var(--cell-size) * 0.9);
+    --board-padding: min(10vh, 10vw);
 }
 
 @font-face {
@@ -14,6 +14,7 @@
 }
 
 #tictactoe {
+    overflow: hidden;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -27,7 +28,8 @@
         position: relative;
         border-radius: 25%;
         background-image: linear-gradient(to bottom, #fbc2eb 0%, #a6c1ee 100%);      
-        
+        height: auto;
+        width: auto;
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
         &:hover {
             box-shadow: 0 5px 25px rgba(255, 255, 255, 0.3);
@@ -35,19 +37,19 @@
 
         .cells {
             z-index: 10;
-            padding: 4em;
+            padding: var(--board-padding);
             height: 100%;
             width: 100%;
             position: absolute;
             display: grid;
-            grid-template-columns: repeat(3, auto);
+            grid-template-columns: repeat(3, 30%);
+            grid-auto-rows: 30%;
+            gap: 5%;
 
             justify-content: space-evenly;
             align-content: space-around;
             
             .cell {
-                width: var(--cell-size);
-                height: var(--cell-size);
 
                 display: flex;
                 justify-content: center;
@@ -55,6 +57,12 @@
 
                 cursor: pointer;
                 
+                .mark-img,
+                .mark-img-hover {
+                    max-width: 100%;
+                    min-width: 70%;
+                }
+
                 .mark-img-hover {
                     pointer-events: none;
                     opacity: 0;
@@ -92,8 +100,8 @@
         }
         .board-svg {
             pointer-events: none;
-            padding: 6em;
-            height: 70vh;
+            margin: var(--board-padding);
+            max-height: min(50vw, 50vh);
         }
 
         &.blur {
@@ -102,8 +110,8 @@
             // -webkit-animation: blurIn .5s;
         }
         &.focus {
-            animation: blurOut .5s;
-            -webkit-animation: blurOut .5s;
+            animation: fadeIn .7s;
+            -webkit-animation: fadeIn .7s;
         }
     }
 
@@ -112,10 +120,8 @@
         position: fixed;
         transform-style: preserve-3d;
         transform: perspective(800px);
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
+        height: 100vh;
+        width: 100vw;
         background-color: rgba(0, 0, 0, .5);
 
         /* display: flex; */
@@ -123,14 +129,13 @@
         justify-content: center;
         align-items: center;
         color: white;
-        gap: 4rem;
+        gap: min(10vh, 10vw);
         
         .end-game-message {
-            font-size: 8rem;
+            font-size: min(15vh, 15vw);
             letter-spacing: .05em;
             .mark-img {
-                margin-right: 1rem;
-                animation: spin 1s infinite;
+                width: 1em;
             }
         }
 
@@ -140,7 +145,7 @@
             --rx: 0;
             --ry: 0;
 
-            font-size: 5em;
+            font-size: min(7vh, 7vw);
             position: relative;
             display: block;
             padding: .5em 1em;
@@ -180,7 +185,7 @@
                 content: attr(data-title);
                 transition: transform .2s ease; 
                 font-weight: bold;
-                letter-spacing: .05em;
+                letter-spacing: .05rem;
                 will-change: transform;
                 transform:
                     translateY(var(--ty, 0))
@@ -227,13 +232,13 @@
 }
 
 @-webkit-keyframes blurOut {
-    from { filter: blur(5px); }
-    to { filter: none; }
+    from { opacity: .5; }//filter: blur(5px); }
+    to { opacity: 1; }// filter: none; }
 }
 
 @keyframes blurOut {
-    from { filter: blur(5px); }
-    to { filter: blur(0); }
+    from { opacity: .5; }//filter: blur(5px); }
+    to { opacity: 1; }// filter: none; }
 }
 
 

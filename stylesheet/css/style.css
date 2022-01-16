@@ -9,7 +9,7 @@ body {
 
 :root {
   --cell-size: 100px;
-  --mark-size: calc(var(--cell-size) * 0.9);
+  --board-padding: min(10vh, 10vw);
 }
 
 @font-face {
@@ -21,6 +21,7 @@ body {
   src: url("../../font/kg-red-hands/KGRedHandsOutline.ttf");
 }
 #tictactoe {
+  overflow: hidden;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -34,6 +35,8 @@ body {
   position: relative;
   border-radius: 25%;
   background-image: linear-gradient(to bottom, #fbc2eb 0%, #a6c1ee 100%);
+  height: auto;
+  width: auto;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
 }
 #tictactoe .board:hover {
@@ -41,22 +44,27 @@ body {
 }
 #tictactoe .board .cells {
   z-index: 10;
-  padding: 4em;
+  padding: var(--board-padding);
   height: 100%;
   width: 100%;
   position: absolute;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, 30%);
+  grid-auto-rows: 30%;
+  gap: 5%;
   justify-content: space-evenly;
   align-content: space-around;
 }
 #tictactoe .board .cells .cell {
-  width: var(--cell-size);
-  height: var(--cell-size);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+}
+#tictactoe .board .cells .cell .mark-img,
+#tictactoe .board .cells .cell .mark-img-hover {
+  max-width: 100%;
+  min-width: 70%;
 }
 #tictactoe .board .cells .cell .mark-img-hover {
   pointer-events: none;
@@ -87,47 +95,44 @@ body {
 }
 #tictactoe .board .board-svg {
   pointer-events: none;
-  padding: 6em;
-  height: 70vh;
+  margin: var(--board-padding);
+  max-height: min(50vw, 50vh);
 }
 #tictactoe .board.blur {
   filter: blur(5px);
 }
 #tictactoe .board.focus {
-  animation: blurOut 0.5s;
-  -webkit-animation: blurOut 0.5s;
+  animation: fadeIn 0.7s;
+  -webkit-animation: fadeIn 0.7s;
 }
 #tictactoe .end-game-interface {
   display: none;
   position: fixed;
   transform-style: preserve-3d;
   transform: perspective(800px);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  height: 100vh;
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
   /* display: flex; */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: white;
-  gap: 4rem;
+  gap: min(10vh, 10vw);
 }
 #tictactoe .end-game-interface .end-game-message {
-  font-size: 8rem;
+  font-size: min(15vh, 15vw);
   letter-spacing: 0.05em;
 }
 #tictactoe .end-game-interface .end-game-message .mark-img {
-  margin-right: 1rem;
-  animation: spin 1s infinite;
+  width: 1em;
 }
 #tictactoe .end-game-interface .restart-button {
   --tz: 0;
   --ty: 0;
   --rx: 0;
   --ry: 0;
-  font-size: 5em;
+  font-size: min(7vh, 7vw);
   position: relative;
   display: block;
   padding: 0.5em 1em;
@@ -161,7 +166,7 @@ body {
   content: attr(data-title);
   transition: transform 0.2s ease;
   font-weight: bold;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.05rem;
   will-change: transform;
   transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
 }
@@ -214,18 +219,18 @@ body {
 }
 @-webkit-keyframes blurOut {
   from {
-    filter: blur(5px);
+    opacity: 0.5;
   }
   to {
-    filter: none;
+    opacity: 1;
   }
 }
 @keyframes blurOut {
   from {
-    filter: blur(5px);
+    opacity: 0.5;
   }
   to {
-    filter: blur(0);
+    opacity: 1;
   }
 }
 @-webkit-keyframes fadeIn {
