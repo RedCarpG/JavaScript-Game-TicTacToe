@@ -1,0 +1,276 @@
+
+:root {
+    --cell-size: 100px;
+    --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+@font-face {
+    font-family: kg_red_hands;
+    src: url("../../font/kg-red-hands/KGRedHands.ttf");
+}
+@font-face {
+    font-family: kg_red_hands_outline;
+    src: url("../../font/kg-red-hands/KGRedHandsOutline.ttf");
+}
+
+#tictactoe {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c0ee 100%);      
+    user-select: none;
+    font-family: kg_red_hands, sans-serif;
+
+    .board {
+        position: relative;
+        border-radius: 25%;
+        background-image: linear-gradient(to bottom, #fbc2eb 0%, #a6c1ee 100%);      
+        
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        &:hover {
+            box-shadow: 0 5px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .cells {
+            z-index: 10;
+            padding: 4em;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+
+            justify-content: space-evenly;
+            align-content: space-around;
+            
+            .cell {
+                width: var(--cell-size);
+                height: var(--cell-size);
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                cursor: pointer;
+                
+                .mark-img-hover {
+                    pointer-events: none;
+                    opacity: 0;
+                }
+
+                &:hover .mark-img-hover {
+                    animation: hoverMark .5s;
+                    -webkit-animation: hoverMark .5s;
+                    opacity: .5;
+                }
+
+                &.x, 
+                &.o {
+                    pointer-events: none;
+                    cursor: not-allowed;
+                }
+
+                &.in {
+                    pointer-events: none;
+                    .mark-img {
+                        animation: placeMark .5s;
+                        -webkit-animation: placeMark .5s;
+                    }
+                }
+
+                &.out {
+                    pointer-events: none;
+                    .mark-img {
+                        animation: removeMark .5s;
+                        -webkit-animation: removeMark .5s;
+                    }
+                }
+
+            }
+        }
+        .board-svg {
+            pointer-events: none;
+            padding: 6em;
+            height: 70vh;
+        }
+
+        &.blur {
+            filter: blur(5px);
+            // animation: blurIn .5s;
+            // -webkit-animation: blurIn .5s;
+        }
+        &.focus {
+            animation: blurOut .5s;
+            -webkit-animation: blurOut .5s;
+        }
+    }
+
+    .end-game-interface {
+        display: none;
+        position: fixed;
+        transform-style: preserve-3d;
+        transform: perspective(800px);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, .5);
+
+        /* display: flex; */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        gap: 4rem;
+        
+        .end-game-message {
+            font-size: 8rem;
+            letter-spacing: .05em;
+            .mark-img {
+                margin-right: 1rem;
+                animation: spin 1s infinite;
+            }
+        }
+
+        .restart-button { 
+            --tz: 0;
+            --ty: 0;
+            --rx: 0;
+            --ry: 0;
+
+            font-size: 5em;
+            position: relative;
+            display: block;
+            padding: .5em 1em;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            user-select: none;
+            color: white;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background: linear-gradient(135deg, #6e8efb, #a777e3);
+                border-radius: 150px;
+                transition: box-shadow .5s ease, transform .2s ease; 
+                will-change: transform;
+                box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+                transform:
+                    translateY(var(--ty, 0))
+                    rotateX(var(--rx, 0))
+                    rotateY(var(--ry, 0))
+                    translateZ(var(--tz, -12px));
+            }
+            
+            &:hover::before {
+                box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+            }
+            
+            &::after {
+                font-family: kg_red_hands_outline;
+                position: relative;
+                display: inline-block;
+                content: attr(data-title);
+                transition: transform .2s ease; 
+                font-weight: bold;
+                letter-spacing: .05em;
+                will-change: transform;
+                transform:
+                    translateY(var(--ty, 0))
+                    rotateX(var(--rx, 0))
+                    rotateY(var(--ry, 0));
+            }
+        }
+
+        &.show {
+            display: flex;
+            animation: fadeIn .7s;
+            -webkit-animation: fadeIn .7s;
+        }
+        &.out {
+            display: flex;
+            animation: fadeOut .7s;
+            -webkit-animation: fadeOut .7s;
+        }
+    }
+}
+
+@-webkit-keyframes hoverMark {
+    from { opacity: 0; transform: translateY(-25%) scale(120%);}
+}
+
+@keyframes hoverMark {
+    from { opacity: 0; transform: translateY(-25%) scale(120%); }
+}
+
+@-webkit-keyframes placeMark {
+    from { opacity: 0; transform: rotateZ(-180deg); }
+}
+
+@keyframes placeMark {
+    from { opacity: 0; transform: rotateZ(-180deg); }
+}
+
+@-webkit-keyframes removeMark {
+    to { opacity: 0; transform: translateY(-25%); }
+}
+
+@keyframes removeMark {
+    to { opacity: 0; transform: translateY(-25%); }
+}
+
+@-webkit-keyframes blurOut {
+    from { filter: blur(5px); }
+    to { filter: none; }
+}
+
+@keyframes blurOut {
+    from { filter: blur(5px); }
+    to { filter: blur(0); }
+}
+
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-webkit-keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@-webkit-keyframes spin {
+    0% { transform: rotate(0);}
+    100% {transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0);}
+    100% {transform: rotate(360deg); }
+    // 0% { transform: translateY(-150px) scaleY(100%) }
+    // 10% { transform: translateY(-145px) scaleY(105%) }
+    // 20% { transform: translateY(-130px) scaleY(120%) }
+    // 30% { transform: translateY(-105px) scaleY(145%) }
+    // 40% { transform: translateY(-70px) scaleY(180%) }
+    // 50% { transform: translateY(-25px) scaleY(225%) scaleX(100%)}
+    // 75% { transform: translateY(40px) scaleY(65%) scaleX(155%)}
+    // 100% { transform: translateY(70px) scaleY(25%) scaleX(200%)}
+}

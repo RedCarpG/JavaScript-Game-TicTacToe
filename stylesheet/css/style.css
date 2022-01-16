@@ -1,0 +1,280 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+:root {
+  --cell-size: 100px;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+@font-face {
+  font-family: kg_red_hands;
+  src: url("../../font/kg-red-hands/KGRedHands.ttf");
+}
+@font-face {
+  font-family: kg_red_hands_outline;
+  src: url("../../font/kg-red-hands/KGRedHandsOutline.ttf");
+}
+#tictactoe {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c0ee 100%);
+  user-select: none;
+  font-family: kg_red_hands, sans-serif;
+}
+#tictactoe .board {
+  position: relative;
+  border-radius: 25%;
+  background-image: linear-gradient(to bottom, #fbc2eb 0%, #a6c1ee 100%);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+#tictactoe .board:hover {
+  box-shadow: 0 5px 25px rgba(255, 255, 255, 0.3);
+}
+#tictactoe .board .cells {
+  z-index: 10;
+  padding: 4em;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+#tictactoe .board .cells .cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#tictactoe .board .cells .cell .mark-img-hover {
+  pointer-events: none;
+  opacity: 0;
+}
+#tictactoe .board .cells .cell:hover .mark-img-hover {
+  animation: hoverMark 0.5s;
+  -webkit-animation: hoverMark 0.5s;
+  opacity: 0.5;
+}
+#tictactoe .board .cells .cell.x, #tictactoe .board .cells .cell.o {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+#tictactoe .board .cells .cell.in {
+  pointer-events: none;
+}
+#tictactoe .board .cells .cell.in .mark-img {
+  animation: placeMark 0.5s;
+  -webkit-animation: placeMark 0.5s;
+}
+#tictactoe .board .cells .cell.out {
+  pointer-events: none;
+}
+#tictactoe .board .cells .cell.out .mark-img {
+  animation: removeMark 0.5s;
+  -webkit-animation: removeMark 0.5s;
+}
+#tictactoe .board .board-svg {
+  pointer-events: none;
+  padding: 6em;
+  height: 70vh;
+}
+#tictactoe .board.blur {
+  filter: blur(5px);
+}
+#tictactoe .board.focus {
+  animation: blurOut 0.5s;
+  -webkit-animation: blurOut 0.5s;
+}
+#tictactoe .end-game-interface {
+  display: none;
+  position: fixed;
+  transform-style: preserve-3d;
+  transform: perspective(800px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 4rem;
+}
+#tictactoe .end-game-interface .end-game-message {
+  font-size: 8rem;
+  letter-spacing: 0.05em;
+}
+#tictactoe .end-game-interface .end-game-message .mark-img {
+  margin-right: 1rem;
+  animation: spin 1s infinite;
+}
+#tictactoe .end-game-interface .restart-button {
+  --tz: 0;
+  --ty: 0;
+  --rx: 0;
+  --ry: 0;
+  font-size: 5em;
+  position: relative;
+  display: block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  color: white;
+}
+#tictactoe .end-game-interface .restart-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border-radius: 150px;
+  transition: box-shadow 0.5s ease, transform 0.2s ease;
+  will-change: transform;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+  transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0)) translateZ(var(--tz, -12px));
+}
+#tictactoe .end-game-interface .restart-button:hover::before {
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+#tictactoe .end-game-interface .restart-button::after {
+  font-family: kg_red_hands_outline;
+  position: relative;
+  display: inline-block;
+  content: attr(data-title);
+  transition: transform 0.2s ease;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  will-change: transform;
+  transform: translateY(var(--ty, 0)) rotateX(var(--rx, 0)) rotateY(var(--ry, 0));
+}
+#tictactoe .end-game-interface.show {
+  display: flex;
+  animation: fadeIn 0.7s;
+  -webkit-animation: fadeIn 0.7s;
+}
+#tictactoe .end-game-interface.out {
+  display: flex;
+  animation: fadeOut 0.7s;
+  -webkit-animation: fadeOut 0.7s;
+}
+
+@-webkit-keyframes hoverMark {
+  from {
+    opacity: 0;
+    transform: translateY(-25%) scale(120%);
+  }
+}
+@keyframes hoverMark {
+  from {
+    opacity: 0;
+    transform: translateY(-25%) scale(120%);
+  }
+}
+@-webkit-keyframes placeMark {
+  from {
+    opacity: 0;
+    transform: rotateZ(-180deg);
+  }
+}
+@keyframes placeMark {
+  from {
+    opacity: 0;
+    transform: rotateZ(-180deg);
+  }
+}
+@-webkit-keyframes removeMark {
+  to {
+    opacity: 0;
+    transform: translateY(-25%);
+  }
+}
+@keyframes removeMark {
+  to {
+    opacity: 0;
+    transform: translateY(-25%);
+  }
+}
+@-webkit-keyframes blurOut {
+  from {
+    filter: blur(5px);
+  }
+  to {
+    filter: none;
+  }
+}
+@keyframes blurOut {
+  from {
+    filter: blur(5px);
+  }
+  to {
+    filter: blur(0);
+  }
+}
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
