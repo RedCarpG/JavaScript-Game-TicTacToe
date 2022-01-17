@@ -7,24 +7,33 @@
     <link rel="stylesheet" href="./stylesheet/css/style.css">
     
     <script src="./js/button.js" defer></script>
+    <script src="./js/bg.js" defer></script>
     <script src="./js/tictactoe.js" defer></script>
     <title> Tic Tac Toe </title>
 </head>
 <body>
     <div class="tictactoe" id="tictactoe">
-        <div class="board">
-            <div class="cells">
-                <div class="cell" data-cell></div>
-                <div class="cell" data-cell></div>
-                <div class="cell" data-cell></div>
-                <div class="cell" data-cell></div>
-                <div class="cell" data-cell></div>
-                <div class="cell" data-cell></div>
-                <div class="cell" data-cell></div>
-                <div class="cell" data-cell></div>
-                <div class="cell" data-cell></div>
+        <div class="main-page">
+            <div class="title"> Tic Tac Toe </div>
+            <embed class="bg-svg back right" src="./img/bg-back-right.svg" type="image/svg+xml" />
+            <embed class="bg-svg back left" src="./img/bg-back-left.svg" type="image/svg+xml" />
+            <embed class="bg-svg back mid" src="./img/bg-back-mid.svg" type="image/svg+xml" />
+            <div class="board">
+                <div class="cells">
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                    <div class="cell" data-cell></div>
+                </div>
+                <embed class="board-svg" src="./img/board.svg" type="image/svg+xml" />
             </div>
-            <img class="board-svg" src="./img/board.svg" />
+            <embed class="bg-svg front left" src="./img/bg-front-left.svg" type="image/svg+xml" />
+            <embed class="bg-svg front right" src="./img/bg-front-right.svg" type="image/svg+xml" />
         </div>
         <div class="end-game-interface">
             <div class="end-game-message" data-end-message-text> X Wins!</div>
