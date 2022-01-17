@@ -24,6 +24,7 @@ body {
   src: url("../../font/kg-red-hands/KGRedHandsOutline.ttf");
 }
 #tictactoe {
+  cursor: url("../../img/cursor/cursor.svg"), auto;
   overflow: hidden;
   width: 100vw;
   height: 100vh;
@@ -78,16 +79,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
 }
 #tictactoe .main-page .board .cells .cell .mark-img,
 #tictactoe .main-page .board .cells .cell .mark-img-hover {
+  pointer-events: none;
   max-width: 100%;
   min-width: 70%;
 }
 #tictactoe .main-page .board .cells .cell .mark-img-hover {
-  pointer-events: none;
   opacity: 0;
+}
+#tictactoe .main-page .board .cells .cell.x, #tictactoe .main-page .board .cells .cell.o {
+  cursor: url("../../img/cursor/cursor-no.svg"), not-allowed;
 }
 #tictactoe .main-page .board .cells .cell:hover .mark-img-hover {
   animation: hoverMark 0.5s;
@@ -105,16 +109,6 @@ body {
     opacity: 0;
     transform: translateY(-25%) scale(120%);
   }
-}
-#tictactoe .main-page .board .cells .cell.x, #tictactoe .main-page .board .cells .cell.o {
-  pointer-events: none;
-  cursor: not-allowed;
-}
-#tictactoe .main-page .board .cells .cell.x.glow .mark-img {
-  animation: spin 1s linear infinite;
-}
-#tictactoe .main-page .board .cells .cell.o.glow .mark-img {
-  animation: spin 1s linear infinite;
 }
 #tictactoe .main-page .board .cells .cell.in {
   pointer-events: none;
@@ -153,6 +147,12 @@ body {
     opacity: 0;
     transform: translateY(-25%);
   }
+}
+#tictactoe .main-page .board .cells .cell.x.glow .mark-img {
+  animation: spin 1s linear infinite;
+}
+#tictactoe .main-page .board .cells .cell.o.glow .mark-img {
+  animation: spin 1s linear infinite;
 }
 #tictactoe .main-page .board .board-svg {
   pointer-events: none;
@@ -292,7 +292,7 @@ body {
   padding: 0.5em 1em;
   text-decoration: none;
   text-align: center;
-  cursor: pointer;
+  cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
   user-select: none;
   color: white;
 }
@@ -329,6 +329,7 @@ body {
   gap: 1vw;
 }
 #tictactoe .end-game-interface .links a {
+  cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
   width: auto;
   height: auto;
 }

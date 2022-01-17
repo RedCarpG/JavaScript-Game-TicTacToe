@@ -17,6 +17,7 @@
 }
 
 #tictactoe {
+    cursor: url("../../img/cursor/cursor.svg"), auto;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
@@ -79,19 +80,25 @@
                     justify-content: center;
                     align-items: center;
     
-                    cursor: pointer;
+                    cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
                     
                     .mark-img,
                     .mark-img-hover {
+                        pointer-events: none;
                         max-width: 100%;
                         min-width: 70%;
                     }
     
                     .mark-img-hover {
-                        pointer-events: none;
                         opacity: 0;
                     }
-    
+
+                    &.x, 
+                    &.o {
+                        cursor: url("../../img/cursor/cursor-no.svg"), not-allowed;
+                    }
+
+                    // Hover animation
                     &:hover .mark-img-hover {
                         animation: hoverMark .5s;
                         -webkit-animation: hoverMark .5s;
@@ -106,20 +113,8 @@
                         }
                         
                     }
-    
-                    &.x, 
-                    &.o {
-                        pointer-events: none;
-                        cursor: not-allowed;
-                    }
-    
-                    &.x.glow .mark-img{
-                        animation: spin 1s linear infinite;
-                    }
-                    &.o.glow .mark-img{
-                        animation: spin 1s linear infinite;
-                    }
 
+                    // In/Out Animation
                     &.in {
                         pointer-events: none;
                         .mark-img {
@@ -152,6 +147,13 @@
                         }
                     }
 
+                    // Glow Animation
+                    &.x.glow .mark-img{
+                        animation: spin 1s linear infinite;
+                    }
+                    &.o.glow .mark-img{
+                        animation: spin 1s linear infinite;
+                    }
                 }
             }
             .board-svg {
@@ -310,7 +312,7 @@
             padding: .5em 1em;
             text-decoration: none;
             text-align: center;
-            cursor: pointer;
+            cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
             user-select: none;
             color: white;
             
@@ -357,6 +359,7 @@
             display: flex;
             gap: 1vw;
             a {
+                cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
                 width: auto;
                 height: auto;
                 img {
