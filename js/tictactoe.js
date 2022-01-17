@@ -6,12 +6,12 @@ const DIAGNOLS = [[0, 4, 8], [2, 4, 6]]
 
 const tictactoe = document.getElementById('tictactoe')
 const cellElements = tictactoe.querySelectorAll('[data-cell]')
-const board = tictactoe.querySelector('.board')
+const mainPage = tictactoe.querySelector('.main-page')
+const board = mainPage.querySelector('.board')
 const endGameInterface = tictactoe.querySelector('.end-game-interface')
 const endGameMessage = endGameInterface.querySelector('.end-game-message')
 const restartButton = tictactoe.querySelector(".restart-button")
-restartButton.addEventListener('click', () => {
-    setTimeout(handleRestart, 200)})    
+restartButton.addEventListener('click', handleRestart)    
 cellElements.forEach(cell => {
     cell.addEventListener('mouseover', handleMouseOver)
     cell.addEventListener('mouseout', handleMouseOut)
@@ -28,7 +28,7 @@ function startGame() {
     cellElements.forEach(cell => {
         if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS)) {
             setTimeout(() => {removeMark(cell)}, timeOut)
-            timeOut += 300
+            timeOut += 100
         }
         cell.addEventListener('click', handleClick, { once: true })
     })
@@ -54,8 +54,10 @@ function handleMouseOver(e) {
     if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS)) return
 
     const currentClass = circleTurn ? O_CLASS : X_CLASS
-    if (currentClass == X_CLASS) {cell.innerHTML = "<img class=\"mark-img-hover float\" src=\"./img/x.svg\" />"}
-    else {cell.innerHTML = "<img class=\"mark-img-hover float\" src=\"./img/o.svg\" />"}
+    
+    cell.innerHTML = currentClass == X_CLASS ? 
+        "<embed class=\"mark-img-hover\" src=\"./img/x.svg\" type=\"image/svg+xml\" />" : 
+        "<embed class=\"mark-img-hover\" src=\"./img/o.svg\" type=\"image/svg+xml\" />"
 }
 function handleMouseOut(e) {
     const cell = e.target
@@ -73,13 +75,15 @@ function handleRestart(e) {
         startGame()
     }, {once: true})
     circleTurn = !circleTurn
-    board.classList.remove("blur")
-    board.classList.add("focus")
+    mainPage.classList.remove("blur")
+    mainPage.classList.add("focus")
 }
 
 function placeMark(cell, markClass) {
     cell.classList.add(markClass)
-    cell.innerHTML = markClass == X_CLASS ? "<img class=\"mark-img\" src=\"./img/x.svg\" />" : "<img class=\"mark-img\" src=\"./img/o.svg\" />"
+    cell.innerHTML = markClass == X_CLASS ? 
+        "<embed class=\"mark-img\" src=\"./img/x.svg\" type=\"image/svg+xml\" />" : 
+        "<embed class=\"mark-img\" src=\"./img/o.svg\" type=\"image/svg+xml\" />"
 
     cell.addEventListener("animationend", () => {
         cell.classList.remove("in")
@@ -124,14 +128,16 @@ function checkDraw() {
 
 function endGame(isDraw) {
     if (isDraw) {
-        endGameMessage.innerText = "It's a Draw !!!"
+        endGameMessage.innerText = "Draw!"
     } else {
-        endGameMessage.innerHTML = `${circleTurn ? "<img class=\"mark-img\" src=\"./img/o.svg\" />": "<img class=\"mark-img\" src=\"./img/x.svg\" />"} Wins!`
+        endGameMessage.innerHTML = `${circleTurn ? 
+            "<embed class=\"mark-img\" src=\"./img/o.svg\" type=\"image/svg+xml\" />": 
+            "<embed class=\"mark-img\" src=\"./img/x.svg\" type=\"image/svg+xml\" />"} Wins!`
     }
     setTimeout(() => {
         endGameInterface.classList.remove("hidden")
         endGameInterface.classList.add("show")
-        board.classList.remove("focus")
-        board.classList.add("blur")
+        mainPage.classList.remove("focus")
+        mainPage.classList.add("blur")
     }, 300)
 }
