@@ -1,10 +1,9 @@
-const floatEle = document.querySelector('.float')
+const rstbtEle = document.querySelector('.restart-button')
+const elStyle = rstbtEle.style
 
-floatEle.onmousemove = function(e) {
+rstbtEle.onmousemove = function(e) {
 
-	const elTarget = e.target
-	const elStyle = elTarget.style
-	const boundingClientRect = elTarget.getBoundingClientRect()
+	const boundingClientRect = rstbtEle.getBoundingClientRect()
 
 	const x = e.clientX - boundingClientRect.left
 	const y = e.clientY - boundingClientRect.top
@@ -14,26 +13,25 @@ floatEle.onmousemove = function(e) {
 	const dx = x - xc
 	const dy = y - yc
 
-	elStyle.setProperty('--rx', `${ dy/-5 }deg`)
-	elStyle.setProperty('--ry', `${ dx/10 }deg`)
+	elStyle.setProperty('--bt_rx', `${ dy/-5 }deg`)
+	elStyle.setProperty('--bt_ry', `${ dx/10 }deg`)
 }
 
-floatEle.onmouseleave = function(e) {
-	elStyle = e.target.style
-	elStyle.setProperty('--ty', '0')
-	elStyle.setProperty('--rx', '0')
-	elStyle.setProperty('--ry', '0')
+rstbtEle.onmouseleave = function(e) {
+	elStyle.setProperty('--bt_ty', '0')
+	elStyle.setProperty('--bt_rx', '0')
+	elStyle.setProperty('--bt_ry', '0')
 	
 }
 
-floatEle.onmousedown = function(e) {
-	e.target.style.setProperty('--tz', '-5rem')
+rstbtEle.onmousedown = function(e) {
+	elStyle.setProperty('--bt_tz', '-5rem')
 	
 }
 
-floatEle.onmouseup = function(e) {
+rstbtEle.onmouseup = function(e) {
 	
-	e.target.style.setProperty('--tz', '-12px')
+	elStyle.setProperty('--bt_tz', '-12px')
 	
 }
 
