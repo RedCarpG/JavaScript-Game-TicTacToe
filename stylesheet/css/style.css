@@ -46,7 +46,6 @@ body {
   font-size: min(10vh, 10vw);
   letter-spacing: 0.2rem;
   text-shadow: 15px 15px 25px #10205386;
-  filter: blur(1px);
 }
 #tictactoe .main-page .title:hover {
   text-shadow: 0 10px 10px rgba(226, 158, 209, 0.5);

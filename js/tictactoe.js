@@ -145,5 +145,5 @@ function endGame(isDraw) {
         endGameInterface.classList.add("show")
         mainPage.classList.remove("focus")
         mainPage.classList.add("blur")
-    }, 1000)
+    }, 700)
 }
