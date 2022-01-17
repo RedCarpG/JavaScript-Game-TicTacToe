@@ -355,6 +355,19 @@
             }
         }
 
+        .links {
+            display: flex;
+            gap: 1vw;
+            a {
+                width: auto;
+                height: auto;
+                img {
+                    width: 2vw;
+                }
+                
+            }
+        }
+
         &.show {
             display: flex;
             animation: fadeIn .7s;

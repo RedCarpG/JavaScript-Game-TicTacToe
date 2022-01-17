@@ -335,6 +335,17 @@ body {
   will-change: transform;
   transform: translateY(var(--bt_ty, 0)) rotateX(var(--bt_rx, 0)) rotateY(var(--bt_ry, 0));
 }
+#tictactoe .end-game-interface .links {
+  display: flex;
+  gap: 1vw;
+}
+#tictactoe .end-game-interface .links a {
+  width: auto;
+  height: auto;
+}
+#tictactoe .end-game-interface .links a img {
+  width: 2vw;
+}
 #tictactoe .end-game-interface.show {
   display: flex;
   animation: fadeIn 0.7s;
