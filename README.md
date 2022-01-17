@@ -4,9 +4,9 @@ A **Tic Tac Toe** game designed by `JavaScript`. Animated by `JavaScript` + `CSS
 
 ***This project is for my personal `JS/CSS/HTML` learning purpose. All the SVGs and animations are created on my own.***
 
-![img](./img/doc/tictactoe.png)
-![img](./img/doc/tictactoe2.png)
-![img](./img/doc/guide.gif)
+![img](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/tictactoe.png?raw=true)
+![img](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/tictactoe2.png?raw=true)
+![img](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/guide.gif?raw=true)
 
 ## 💡 Design
 
