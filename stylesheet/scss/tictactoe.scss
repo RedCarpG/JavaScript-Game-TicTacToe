@@ -114,6 +114,13 @@
                         cursor: not-allowed;
                     }
     
+                    &.x.glow .mark-img{
+                        animation: spin 1s linear infinite;
+                    }
+                    &.o.glow .mark-img{
+                        animation: spin 1s linear infinite;
+                    }
+
                     &.in {
                         pointer-events: none;
                         .mark-img {
@@ -145,6 +152,7 @@
                             }
                         }
                     }
+
                 }
             }
             .board-svg {
@@ -288,15 +296,6 @@
             .mark-img {
                 width: 1em;
                 animation: spin 1s alternate infinite;
-                @-webkit-keyframes spin {
-                    0% { transform: rotate(0);}
-                    100% {transform: rotate(360deg); }
-                }
-                
-                @keyframes spin {
-                    0% { transform: rotate(0);}
-                    100% {transform: rotate(360deg); }
-                }
             }
         }
 
@@ -401,6 +400,15 @@
     }
 }
 
+@-webkit-keyframes spin {
+    0% { transform: rotate(0);}
+    100% {transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0);}
+    100% {transform: rotate(360deg); }
+}
 
 // @media screen and (min-width: 1200px) {
 // }

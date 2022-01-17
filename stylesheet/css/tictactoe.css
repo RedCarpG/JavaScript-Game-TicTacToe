@@ -102,6 +102,12 @@
   pointer-events: none;
   cursor: not-allowed;
 }
+#tictactoe .main-page .board .cells .cell.x.glow .mark-img {
+  animation: spin 1s linear infinite;
+}
+#tictactoe .main-page .board .cells .cell.o.glow .mark-img {
+  animation: spin 1s linear infinite;
+}
 #tictactoe .main-page .board .cells .cell.in {
   pointer-events: none;
 }
@@ -267,22 +273,6 @@
   width: 1em;
   animation: spin 1s alternate infinite;
 }
-@-webkit-keyframes spin {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 #tictactoe .end-game-interface .restart-button {
   --bt_tz: 0;
   --bt_ty: 0;
@@ -377,6 +367,23 @@
   }
   to {
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
 
