@@ -94,6 +94,7 @@ function placeMark(cell, markClass) {
 function removeMark(cell) {
     cell.classList.remove(X_CLASS)
     cell.classList.remove(O_CLASS)
+    cell.classList.remove("glow")
     cell.addEventListener("animationend", () => {
         cell.classList.remove("out")
         cell.innerHTML = ""
@@ -114,9 +115,14 @@ function setBoardHoverClass(setCircleTurn) {
 
 function checkWinning(currentClass) {
     return [...ROWS, ...COLUMNS, ...DIAGNOLS].some(sequence => {
-        return sequence.every(index => {
+        if (sequence.every(index => {
             return cellElements[index].classList.contains(currentClass)
-        })
+        })) {
+            sequence.forEach(index => {
+                cellElements[index].classList.add("glow")
+            })
+            return true
+        } else return false
     })
 }
 
@@ -139,5 +145,5 @@ function endGame(isDraw) {
         endGameInterface.classList.add("show")
         mainPage.classList.remove("focus")
         mainPage.classList.add("blur")
-    }, 300)
+    }, 1000)
 }
