@@ -33,7 +33,7 @@ function startGame() {
         cell.addEventListener('click', handleClick, { once: true })
     })
 
-    setBoardHoverClass(setCircleTurn = circleTurn)
+    setBoardHoverClass(circleTurn)
 }
 
 function handleClick(e) {
@@ -42,9 +42,9 @@ function handleClick(e) {
     placeMark(cell, currentClass)
 
     if (checkWinning(currentClass)) {
-        endGame(isDraw = false)
+        endGame(false)
     } else if (checkDraw()) {
-        endGame(isDraw = true)
+        endGame(true)
     } else {
         switchTurns()
     }
