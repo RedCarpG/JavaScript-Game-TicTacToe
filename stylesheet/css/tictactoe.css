@@ -7,11 +7,11 @@
 }
 
 @font-face {
-  font-family: kg_red_hands;
+  font-family: font_main;
   src: url("../../font/kg-red-hands/KGRedHands.ttf");
 }
 @font-face {
-  font-family: kg_red_hands_outline;
+  font-family: font_button;
   src: url("../../font/kg-red-hands/KGRedHandsOutline.ttf");
 }
 #tictactoe {
@@ -23,7 +23,7 @@
   background-image: linear-gradient(to top, #c582b2 0%, #6c8bc0 100%);
   user-select: none;
   color: white;
-  font-family: kg_red_hands, sans-serif;
+  font-family: font_main, sans-serif;
 }
 #tictactoe .main-page {
   height: 100%;
@@ -305,7 +305,7 @@
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
 }
 #tictactoe .end-game-interface .restart-button::after {
-  font-family: kg_red_hands_outline;
+  font-family: font_button;
   position: relative;
   display: inline-block;
   content: attr(data-title);

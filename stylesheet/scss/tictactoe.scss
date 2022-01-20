@@ -7,15 +7,17 @@
     --board-padding: min(10vh, 10vw);
 }
 
+/* FONTs */
 @font-face {
-    font-family: kg_red_hands;
+    font-family: font_main;
     src: url("../../font/kg-red-hands/KGRedHands.ttf");
 }
 @font-face {
-    font-family: kg_red_hands_outline;
+    font-family: font_button;
     src: url("../../font/kg-red-hands/KGRedHandsOutline.ttf");
 }
 
+/* MAIN */
 #tictactoe {
     cursor: url("../../img/cursor/cursor.svg"), auto;
     overflow: hidden;
@@ -26,7 +28,7 @@
     user-select: none;
 
     color: white;
-    font-family: kg_red_hands, sans-serif;
+    font-family: font_main, sans-serif;
 
     .main-page {
 
@@ -340,7 +342,7 @@
             }
             
             &::after {
-                font-family: kg_red_hands_outline;
+                font-family: font_button;
                 position: relative;
                 display: inline-block;
                 content: attr(data-title);
@@ -402,6 +404,7 @@
     }
 }
 
+/* ANIMATIONs */
 @-webkit-keyframes spin {
     0% { transform: rotate(0);}
     100% {transform: rotate(360deg); }
