@@ -1,0 +1,49 @@
+
+button.float-button {
+    --bt_tz: 0;
+    --bt_ty: 0;
+    --bt_rx: 0;
+    --bt_ry: 0;
+
+    --p_x : 1em;
+    --p_y : .8em;
+    --bg_color: linear-gradient(135deg, #6e8efb, #a777e3);
+    --shadow_color: rgba(255, 255, 255, 0.2);
+    --hover_shadow_color: rgba(255, 255, 255, 0.7);
+
+    position: relative;
+    display: block;
+    padding: var(--p_y) var(--p_x) ;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}
+button.float-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 2em;
+    transition: box-shadow 0.5s ease, transform 0.2s ease;
+    will-change: transform;
+    background: var(--bg_color);
+    box-shadow: 0 .1em .2em var(--shadow_color);
+    transform: translateY(var(--bt_ty, 0)) rotateX(var(--bt_rx, 0)) rotateY(var(--bt_ry, 0)) translateZ(var(--bt_tz, -1em));
+}
+button.float-button:hover::before {
+    box-shadow: 0 .1em .2em var(--hover_shadow_color);
+}
+
+button.float-button::after {
+    font-family: inherit;
+    position: relative;
+    display: inline-block;
+    content: attr(data-title);
+    transition: transform 0.2s ease;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    will-change: transform;
+    transform: translateY(var(--bt_ty, 0)) rotateX(var(--bt_rx, 0)) rotateY(var(--bt_ry, 0));
+}

@@ -1,0 +1,26 @@
+
+.cover-page {
+    @apply 
+        tw-fixed tw-h-full tw-w-full 
+        tw-flex tw-flex-col
+        tw-bg-black tw-bg-opacity-50
+        tw-justify-center tw-items-center tw-gap-y-20
+        tw-text-white;
+    /* display: none;
+    position: fixed;
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5); */
+    /* display: flex; */
+    /* flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: min(10vh, 10vw); */
+}
+
+.cover-page.hidden {
+    @apply tw-hidden;
+}

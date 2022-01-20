@@ -1,0 +1,26 @@
+@import "./tailwindcss/tailwind.css";
+
+@import "./css/float-button.css";
+@import "./css/tictactoe.css";
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+
+.mark-img.spin {
+    animation: spin 1s alternate infinite;
+}
+  
+  
+button {
+    cursor: url("./asset/img/cursor/cursor-yes.svg"), pointer;
+    user-select: none;
+    font-family: kg_red_hands_outline;
+    font-size: 3.5rem;
+}
