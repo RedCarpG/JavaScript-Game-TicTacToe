@@ -25,11 +25,9 @@ function Cell( { cellId, cbOnClick } ) {
         
         console.debug(`UseEffect`)
     }, [markType])
-    useEffect(() => {
-        
-        console.debug(`UseEffect`)
-    }, [isMarkPut])
+
     console.debug(`Render Cell ${cellId}`)
+
     /** Functions */
     function putMark() {
         setIsMarkPut(true)
@@ -89,7 +87,6 @@ export default function GameBoard() {
                                                     -1, -1, -1])
 
     const clearBoardRecord = useCallback(() => {
-        console.debug("Cleaned")
         setBoardRecord(currentBoard => {
             return [...currentBoard.fill(-1)]
         })
