@@ -1,11 +1,11 @@
 
 .cover-page {
     @apply 
-        tw-fixed tw-h-full tw-w-full 
+        tw-fixed tw-top-0 tw-bottom-0 tw-left-0 tw-right-0
         tw-flex tw-flex-col
         tw-bg-black tw-bg-opacity-50
         tw-justify-center tw-items-center tw-gap-y-20
-        tw-text-white;
+        tw-text-white tw-select-none tw-z-10;
     /* display: none;
     position: fixed;
     transform-style: preserve-3d;
