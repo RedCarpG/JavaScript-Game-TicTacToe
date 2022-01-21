@@ -1,0 +1,69 @@
+#tictactoe .main-page {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: min(5vh, 5vw);
+}
+#tictactoe .main-page .title {
+    font-size: min(10vh, 10vw);
+    letter-spacing: 0.2rem;
+    text-shadow: 15px 15px 25px #10205386;
+}
+#tictactoe .main-page .title:hover {
+    text-shadow: 0 10px 10px rgba(226, 158, 209, 0.5);
+}
+#tictactoe .main-page .board {
+    position: relative;
+    border-radius: 25%;
+    background-image: linear-gradient(to bottom, #e7a7d5 0%, #84a2d6 100%);
+    height: auto;
+    width: auto;
+    box-shadow: 0 10px min(10vw, 10vh) rgba(28, 45, 90, 0.7);
+}
+#tictactoe .main-page .board:hover {
+    box-shadow: 0 10px min(10vw, 10vh) rgba(226, 158, 209, 0.7);
+  }
+#tictactoe .main-page .board .cells {
+    z-index: 10;
+    padding: var(--board-padding);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-auto-rows: 30%;
+    gap: 5%;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+  
+#tictactoe .main-page .board .board-svg {
+    pointer-events: none;
+    margin: var(--board-padding);
+    max-height: min(50vw, 50vh);
+}
+  
+#tictactoe .main-page.blur {
+    filter: blur(5px);
+}
+#tictactoe .main-page.focus {
+    animation: blurOut 0.7s;
+}
+
+@keyframes blurOut {
+    from {
+      filter: blur(5px);
+    }
+    to {
+      filter: none;
+    }
+}
+  
