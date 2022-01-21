@@ -1,0 +1,42 @@
+
+@import "./tictactoe_mainpage.css";
+@import "./tictactoe_marks.css";
+@import "./tictactoe_endgame.css";
+@import "./tictactoe_bg.css";
+
+:root {
+  --tx: 0;
+  --tz: 0;
+  --ty: 0;
+  --cell-size: 100px;
+  --board-padding: min(10vh, 10vw);
+}
+
+@font-face {
+  font-family: kg_red_hands;
+  src: url("./asset/font/kg-red-hands/KGRedHands.ttf");
+}
+@font-face {
+  font-family: kg_red_hands_outline;
+  src: url("./asset/font/kg-red-hands/KGRedHandsOutline.ttf");
+}
+
+#tictactoe {
+  cursor: url("./asset/img/cursor/cursor.svg"), auto;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-image: linear-gradient(to top, #c582b2 0%, #6c8bc0 100%);
+  user-select: none;
+  color: white;
+  font-family: kg_red_hands, sans-serif;
+}
+
+button {
+  cursor: url("./asset/img/cursor/cursor-yes.svg"), pointer;
+  user-select: none;
+  font-family: kg_red_hands_outline;
+  font-size: 3.5rem;
+}
+

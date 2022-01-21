@@ -1,0 +1,55 @@
+#tictactoe .end-page {
+    position: fixed;
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: min(10vh, 10vw);
+}
+#tictactoe .end-page .end-game-message {
+    font-size: min(15vh, 15vw);
+    letter-spacing: 0.05em;
+}
+  
+#tictactoe .end-page .links {
+    display: flex;
+    gap: 1vw;
+}
+#tictactoe .end-page .links a {
+    cursor: url("./asset/img/cursor/cursor-yes.svg"), pointer;
+    width: auto;
+    height: auto;
+}
+#tictactoe .end-page .links a img {
+    width: 2vw;
+}
+
+#tictactoe .end-page-enter {
+    animation: fadeIn 0.7s;
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+#tictactoe .end-page-exit {
+    animation: fadeOut 0.7s forwards;
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+}

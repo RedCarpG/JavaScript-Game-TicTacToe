@@ -1,0 +1,871 @@
+
+.cover-page {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 10;
+    display: flex;
+    -webkit-user-select: none;
+            user-select: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 5rem;
+    background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+    --tw-bg-opacity: 0.5;
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    /* display: none;
+    position: fixed;
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5); */
+    /* display: flex; */
+    /* flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: min(10vh, 10vw); */
+}
+
+.cover-page.hidden {
+    display: none;
+}
+
+/* ! tailwindcss v3.0.15 | MIT License | https://tailwindcss.com */
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  border-width: 0; /* 2 */
+  border-style: solid; /* 2 */
+  border-color: #e5e7eb; /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+*/
+
+html {
+  line-height: 1.5; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */ /* 3 */
+  tab-size: 4; /* 3 */
+  font-family: Graphik, sans-serif; /* 4 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0; /* 1 */
+  line-height: inherit; /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0; /* 1 */
+  color: inherit; /* 2 */
+  border-top-width: 1px; /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0; /* 1 */
+  border-color: inherit; /* 2 */
+  border-collapse: collapse; /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1; /* 1 */
+  color: #9ca3af; /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block; /* 1 */
+  vertical-align: middle; /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/*
+Ensure the default browser behavior of the `hidden` attribute.
+*/
+
+[hidden] {
+  display: none;
+}
+
+*, ::before, ::after {
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x:  ;
+    --tw-pan-y:  ;
+    --tw-pinch-zoom:  ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-ordinal:  ;
+    --tw-slashed-zero:  ;
+    --tw-numeric-figure:  ;
+    --tw-numeric-spacing:  ;
+    --tw-numeric-fraction:  ;
+    --tw-ring-inset:  ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgb(59 130 246 / 0.5);
+    --tw-ring-offset-shadow: 0 0 #0000;
+    --tw-ring-shadow: 0 0 #0000;
+    --tw-shadow: 0 0 #0000;
+    --tw-shadow-colored: 0 0 #0000;
+    --tw-blur:  ;
+    --tw-brightness:  ;
+    --tw-contrast:  ;
+    --tw-grayscale:  ;
+    --tw-hue-rotate:  ;
+    --tw-invert:  ;
+    --tw-saturate:  ;
+    --tw-sepia:  ;
+    --tw-drop-shadow:  ;
+    --tw-backdrop-blur:  ;
+    --tw-backdrop-brightness:  ;
+    --tw-backdrop-contrast:  ;
+    --tw-backdrop-grayscale:  ;
+    --tw-backdrop-hue-rotate:  ;
+    --tw-backdrop-invert:  ;
+    --tw-backdrop-opacity:  ;
+    --tw-backdrop-saturate:  ;
+    --tw-backdrop-sepia:  ;
+}
+
+.tw-flex {
+    display: flex;
+}
+
+.tw-flex-row {
+    flex-direction: row;
+}
+
+.tw-items-center {
+    align-items: center;
+}
+
+.tw-justify-center {
+    justify-content: center;
+}
+
+.tw-gap-5 {
+    gap: 1.25rem;
+}
+
+.tw-text-8xl {
+    font-size: 6rem;
+    line-height: 1;
+}
+
+.tw-text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+
+button.float-button {
+    --bt_tz: 0;
+    --bt_ty: 0;
+    --bt_rx: 0;
+    --bt_ry: 0;
+
+    --p_x : 1em;
+    --p_y : .8em;
+    --bg_color: linear-gradient(135deg, #6e8efb, #a777e3);
+    --shadow_color: rgba(255, 255, 255, 0.2);
+    --hover_shadow_color: rgba(255, 255, 255, 0.7);
+
+    position: relative;
+    display: block;
+    padding: var(--p_y) var(--p_x) ;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}
+
+button.float-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 2em;
+    transition: box-shadow 0.5s ease, transform 0.2s ease;
+    will-change: transform;
+    background: var(--bg_color);
+    box-shadow: 0 .1em .2em var(--shadow_color);
+    transform: translateY(var(--bt_ty, 0)) rotateX(var(--bt_rx, 0)) rotateY(var(--bt_ry, 0)) translateZ(var(--bt_tz, -1em));
+}
+
+button.float-button:hover::before {
+    box-shadow: 0 .1em .2em var(--hover_shadow_color);
+}
+
+button.float-button::after {
+    font-family: inherit;
+    position: relative;
+    display: inline-block;
+    content: attr(data-title);
+    transition: transform 0.2s ease;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    will-change: transform;
+    transform: translateY(var(--bt_ty, 0)) rotateX(var(--bt_rx, 0)) rotateY(var(--bt_ry, 0));
+}
+
+#tictactoe .main-page {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: min(5vh, 5vw);
+}
+
+#tictactoe .main-page .title {
+    font-size: min(10vh, 10vw);
+    letter-spacing: 0.2rem;
+    text-shadow: 15px 15px 25px #10205386;
+}
+
+#tictactoe .main-page .title:hover {
+    text-shadow: 0 10px 10px rgba(226, 158, 209, 0.5);
+}
+
+#tictactoe .main-page .board {
+    position: relative;
+    border-radius: 25%;
+    background-image: linear-gradient(to bottom, #e7a7d5 0%, #84a2d6 100%);
+    height: auto;
+    width: auto;
+    box-shadow: 0 10px min(10vw, 10vh) rgba(28, 45, 90, 0.7);
+}
+
+#tictactoe .main-page .board:hover {
+    box-shadow: 0 10px min(10vw, 10vh) rgba(226, 158, 209, 0.7);
+  }
+
+#tictactoe .main-page .board .cells {
+    z-index: 10;
+    padding: var(--board-padding);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-auto-rows: 30%;
+    gap: 5%;
+    justify-content: space-evenly;
+    align-content: space-around;
+}
+
+#tictactoe .main-page .board .board-svg {
+    pointer-events: none;
+    margin: var(--board-padding);
+    max-height: min(50vw, 50vh);
+}
+
+#tictactoe .main-page.blur {
+    filter: blur(5px);
+}
+
+#tictactoe .main-page.focus {
+    animation: blurOut 0.7s;
+}
+
+@keyframes blurOut {
+    from {
+      filter: blur(5px);
+    }
+    to {
+      filter: none;
+    }
+}
+
+#tictactoe .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url("./asset/img/cursor/cursor-yes.svg"), pointer;
+}
+
+#tictactoe .cell .mark-img {
+    pointer-events: none;
+    max-width: 100%;
+    min-width: 70%;
+    visibility: hidden;
+}
+
+/* Hover on a not set Cell */
+
+#tictactoe .cell:hover:not(.cell-enter, .cell-enter-done, .cell-exit) .mark-img {
+    visibility: visible;
+    animation: hoverMark 0.5s;
+    opacity: 0.5;
+}
+
+@keyframes hoverMark {
+        from {
+            opacity: 0;
+            transform: translateY(-25%) scale(120%);
+        }
+    }
+
+/* Animation for putting a Mark in a Cell */
+
+#tictactoe .cell.cell-enter .mark-img,
+#tictactoe .cell.cell-enter-done .mark-img {
+    visibility: visible;
+    cursor: url("./asset/img/cursor/cursor-no.svg"), not-allowed;
+}
+
+#tictactoe .cell.cell-enter .mark-img {
+    animation: placeMark 0.5s;
+}
+
+@keyframes placeMark {
+        from {
+            opacity: 0;
+            transform: rotateZ(-180deg);
+        }
+    }
+
+/* Animation for removing a Mark from a Cell */
+
+#tictactoe .cell.cell-exit-active .mark-img{
+    visibility: visible;
+    animation: removeMark 1s forwards;
+}
+
+@keyframes removeMark {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-25%);
+        }
+    }
+
+/* #tictactoe .cell.cell-exit-done {
+    visibility: visible;
+} */
+
+#tictactoe .mark-img.spin {
+    animation: spin 1s alternate infinite;
+}
+
+@keyframes spin {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+#tictactoe .end-page {
+    position: fixed;
+    transform-style: preserve-3d;
+    transform: perspective(800px);
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    gap: min(10vh, 10vw);
+}
+
+#tictactoe .end-page .end-game-message {
+    font-size: min(15vh, 15vw);
+    letter-spacing: 0.05em;
+}
+
+#tictactoe .end-page .links {
+    display: flex;
+    gap: 1vw;
+}
+
+#tictactoe .end-page .links a {
+    cursor: url("./asset/img/cursor/cursor-yes.svg"), pointer;
+    width: auto;
+    height: auto;
+}
+
+#tictactoe .end-page .links a img {
+    width: 2vw;
+}
+
+#tictactoe .end-page-enter {
+    animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+#tictactoe .end-page-exit {
+    animation: fadeOut 0.7s forwards;
+}
+
+@keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+
+#tictactoe .bg-svg {
+    pointer-events: none;
+    position: fixed;
+    margin: auto;
+}
+
+#tictactoe .bg-svg.front {
+    filter: blur(2px);
+    transition: transform 0.5s linear;
+    will-change: transform;
+    transform: translateX(var(--tx)) translateY(var(--ty));
+}
+
+#tictactoe .bg-svg.back {
+    filter: blur(5px);
+    transition: transform 0.5s linear;
+    will-change: transform;
+    transform: translateX(calc(var(--tx) / 4)) translateY(calc(var(--ty) / 4));
+}
+
+@media (orientation: landscape) {
+    #tictactoe .bg-svg {
+        top: 0;
+        bottom: 0;
+    }
+    #tictactoe .bg-svg.front.left {
+        height: 150vh;
+        right: 55vw;
+    }
+    #tictactoe .bg-svg.front.right {
+        height: 130vh;
+        left: 65vw;
+        margin-top: 10vh;
+    }
+    #tictactoe .bg-svg.back {
+        width: 25vw;
+    }
+    #tictactoe .bg-svg.back.left {
+        right: 65vw;
+    }
+    #tictactoe .bg-svg.back.right {
+        left: 70vw;
+    }
+    #tictactoe .bg-svg.back.mid {
+        height: 110vh;
+    }
+}
+
+@media (orientation: portrait) {
+    #tictactoe .bg-svg {
+        left: 0;
+        right: 0;
+    }
+    #tictactoe .bg-svg.front.left {
+        height: 120vw;
+        bottom: 55vh;
+        margin-left: 0vw;
+        transform: rotate(120deg) translateX(var(--ty)) translateY(var(--tx));
+    }
+    #tictactoe .bg-svg.front.right {
+        height: 140vw;
+        top: 60vh;
+        margin-left: -10vw;
+        transform: rotate(90deg) translateX(var(--ty)) translateY(var(--tx));
+    }
+    #tictactoe .bg-svg.back {
+        height: 50vh;
+    }
+    #tictactoe .bg-svg.back.left {
+        top: 0;
+        right: 65vw;
+    }
+    #tictactoe .bg-svg.back.right {
+        bottom: 0;
+        left: 70vw;
+    }
+    #tictactoe .bg-svg.back.mid {
+        display: none;
+    }
+}
+
+:root {
+  --tx: 0;
+  --tz: 0;
+  --ty: 0;
+  --cell-size: 100px;
+  --board-padding: min(10vh, 10vw);
+}
+
+@font-face {
+  font-family: kg_red_hands;
+  src: url("./asset/font/kg-red-hands/KGRedHands.ttf");
+}
+
+@font-face {
+  font-family: kg_red_hands_outline;
+  src: url("./asset/font/kg-red-hands/KGRedHandsOutline.ttf");
+}
+
+#tictactoe {
+  cursor: url("./asset/img/cursor/cursor.svg"), auto;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-image: linear-gradient(to top, #c582b2 0%, #6c8bc0 100%);
+  -webkit-user-select: none;
+          user-select: none;
+  color: white;
+  font-family: kg_red_hands, sans-serif;
+}
+
+button {
+  cursor: url("./asset/img/cursor/cursor-yes.svg"), pointer;
+  -webkit-user-select: none;
+          user-select: none;
+  font-family: kg_red_hands_outline;
+  font-size: 3.5rem;
+}
+

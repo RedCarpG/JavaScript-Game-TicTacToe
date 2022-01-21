@@ -1,0 +1,72 @@
+#tictactoe .cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: url("./asset/img/cursor/cursor-yes.svg"), pointer;
+}
+
+#tictactoe .cell .mark-img {
+    pointer-events: none;
+    max-width: 100%;
+    min-width: 70%;
+    visibility: hidden;
+}
+
+/* Hover on a not set Cell */
+#tictactoe .cell:hover:not(.cell-enter, .cell-enter-done, .cell-exit) .mark-img {
+    visibility: visible;
+    animation: hoverMark 0.5s;
+    opacity: 0.5;
+    @keyframes hoverMark {
+        from {
+            opacity: 0;
+            transform: translateY(-25%) scale(120%);
+        }
+    }
+}
+
+/* Animation for putting a Mark in a Cell */
+#tictactoe .cell.cell-enter .mark-img,
+#tictactoe .cell.cell-enter-done .mark-img {
+    visibility: visible;
+    cursor: url("./asset/img/cursor/cursor-no.svg"), not-allowed;
+}
+#tictactoe .cell.cell-enter .mark-img {
+    animation: placeMark 0.5s;
+    @keyframes placeMark {
+        from {
+            opacity: 0;
+            transform: rotateZ(-180deg);
+        }
+    }
+}
+
+/* Animation for removing a Mark from a Cell */
+#tictactoe .cell.cell-exit-active .mark-img{
+    visibility: visible;
+    animation: removeMark 1s forwards;
+    @keyframes removeMark {
+        from {
+            opacity: 1;
+        }
+        to {
+            opacity: 0;
+            transform: translateY(-25%);
+        }
+    }
+}
+/* #tictactoe .cell.cell-exit-done {
+    visibility: visible;
+} */
+
+#tictactoe .mark-img.spin {
+    animation: spin 1s alternate infinite;
+    @keyframes spin {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+}

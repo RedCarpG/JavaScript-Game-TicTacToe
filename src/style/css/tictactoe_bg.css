@@ -1,0 +1,78 @@
+#tictactoe .bg-svg {
+    pointer-events: none;
+    position: fixed;
+    margin: auto;
+}
+#tictactoe .bg-svg.front {
+    filter: blur(2px);
+    transition: transform 0.5s linear;
+    will-change: transform;
+    transform: translateX(var(--tx)) translateY(var(--ty));
+}
+#tictactoe .bg-svg.back {
+    filter: blur(5px);
+    transition: transform 0.5s linear;
+    will-change: transform;
+    transform: translateX(calc(var(--tx) / 4)) translateY(calc(var(--ty) / 4));
+}
+
+  
+@media (orientation: landscape) {
+    #tictactoe .bg-svg {
+        top: 0;
+        bottom: 0;
+    }
+    #tictactoe .bg-svg.front.left {
+        height: 150vh;
+        right: 55vw;
+    }
+    #tictactoe .bg-svg.front.right {
+        height: 130vh;
+        left: 65vw;
+        margin-top: 10vh;
+    }
+    #tictactoe .bg-svg.back {
+        width: 25vw;
+    }
+    #tictactoe .bg-svg.back.left {
+        right: 65vw;
+    }
+    #tictactoe .bg-svg.back.right {
+        left: 70vw;
+    }
+    #tictactoe .bg-svg.back.mid {
+        height: 110vh;
+    }
+}
+@media (orientation: portrait) {
+    #tictactoe .bg-svg {
+        left: 0;
+        right: 0;
+    }
+    #tictactoe .bg-svg.front.left {
+        height: 120vw;
+        bottom: 55vh;
+        margin-left: 0vw;
+        transform: rotate(120deg) translateX(var(--ty)) translateY(var(--tx));
+    }
+    #tictactoe .bg-svg.front.right {
+        height: 140vw;
+        top: 60vh;
+        margin-left: -10vw;
+        transform: rotate(90deg) translateX(var(--ty)) translateY(var(--tx));
+    }
+    #tictactoe .bg-svg.back {
+        height: 50vh;
+    }
+    #tictactoe .bg-svg.back.left {
+        top: 0;
+        right: 65vw;
+    }
+    #tictactoe .bg-svg.back.right {
+        bottom: 0;
+        left: 70vw;
+    }
+    #tictactoe .bg-svg.back.mid {
+        display: none;
+    }
+}
