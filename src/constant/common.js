@@ -3,7 +3,8 @@ const STATUS = {
     INGAME: 0,
     WIN: 1,
     DRAW: 2,
-    PAUSE: 3
+    PAUSE: 3,
+    RESTART: 4
 }
 
 const MARK = {
