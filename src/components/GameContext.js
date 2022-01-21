@@ -1,27 +1,27 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { STATUS, MARK } from "../constant/common.js";
 
 const GameContext = React.createContext()
 const GameUpdateContext = React.createContext()
 
 export function useTurn() {
-    return useContext(GameContext)[0]
+    return useContext(GameContext).turn
 }
 
 export function useGameState() {
-    return useContext(GameContext)[1]
+    return useContext(GameContext).gameState
 }
 export function useTurnUpdate() {
-    return useContext(GameUpdateContext)[0]
+    return useContext(GameUpdateContext).switchTurn
 }
 export function useGameStateUpdate() {
-    return useContext(GameUpdateContext)[1]
+    return useContext(GameUpdateContext).switchGameState
 }
 
 export default function GameContextProvider({ children }) {
 
     const [turn, setTurn] = useState(MARK.O);
-    const [gameState, setGameState] = useState(STATUS.INGAME);
+    const [gameState, setGameState] = useState(STATUS.WIN);
     
     /** For debug */
     useEffect(() => {
@@ -32,10 +32,10 @@ export default function GameContextProvider({ children }) {
     }, [gameState])
 
 
-    function switchTurn() {
+    const switchTurn = useCallback(() => {
         setTurn(currentTurn => (currentTurn+1)%2)
-    }     
-    function switchGameState(newState=STATUS.INGAME) {
+    }, [])
+    const switchGameState = useCallback((newState) => {
         setGameState(currentState => {
             if (currentState !== newState) {
                 return newState
@@ -43,11 +43,19 @@ export default function GameContextProvider({ children }) {
                 console.debug(`Error`)
             }
         })
-    } 
+    }, [])
 
     return (
-        <GameContext.Provider value={[turn, gameState]}>
-            <GameUpdateContext.Provider value={[switchTurn, switchGameState]}>
+        <GameContext.Provider value={
+            useMemo(() => {
+                return {turn: turn, gameState: gameState}
+            }, [turn, gameState])
+        }>
+            <GameUpdateContext.Provider value={
+                useMemo(() => {
+                    return {switchGameState:switchGameState, switchTurn:switchTurn}
+                }, [switchGameState, switchTurn])
+            }>
                 {children}
             </GameUpdateContext.Provider>
         </GameContext.Provider>
