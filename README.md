@@ -1,5 +1,7 @@
 # JavaScript-Game-TicTacToe
 
+> Preview the project on the webpage: [TicTacToe](redcarpg.github.io/JavaScript-Game-TicTactoe)
+
 ## Overview
 
 -----------------------------
@@ -7,8 +9,6 @@
 A **Tic Tac Toe** game designed by `JavaScript`. Animated by `JavaScript` + `CSS3`.
 
 ***This project is for my personal `JS/CSS/HTML` learning purpose. All the SVGs and animations are created by my own.***
-
-> To view the project on the webpage: [tictactoe](redcarpg.github.io/JavaScript-Game-TicTactoe)
 
 ![img](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/tictactoe.png?raw=true)
 ![img](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/tictactoe2.png?raw=true)
