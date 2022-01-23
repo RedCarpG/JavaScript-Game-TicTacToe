@@ -1,0 +1,32 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "A **Tic Tac Toe** game designed by `JavaScript`. Animated by `JavaScript` + `CSS3`.",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedCarpG/JavaScript-Game-TicTacToe.git"
+  },
+  "author": "RedCarpG",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RedCarpG/JavaScript-Game-TicTacToe/issues"
+  },
+  "homepage": "https://github.com/RedCarpG/JavaScript-Game-TicTacToe#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "cssnano": "^5.0.15",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^8.0.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-svgo": "^2.2.1",
+    "gulp-terser": "^2.1.0",
+    "imagemin-svgo": "^10.0.1",
+    "sass": "^1.49.0"
+  }
+}
