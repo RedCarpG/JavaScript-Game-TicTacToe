@@ -8,6 +8,8 @@ A **Tic Tac Toe** game designed by `JavaScript`. Animated by `JavaScript` + `CSS
 
 ***This project is for my personal `JS/CSS/HTML` learning purpose. All the SVGs and animations are created by my own.***
 
+> To view the project on the webpage: [tictactoe](redcarpg.github.io/JavaScript-Game-TicTactoe)
+
 ![img](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/tictactoe.png?raw=true)
 ![img](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/tictactoe2.png?raw=true)
 ![img](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/guide.gif?raw=true)
@@ -21,6 +23,7 @@ A **Tic Tac Toe** game designed by `JavaScript`. Animated by `JavaScript` + `CSS
 |   |   |
 |  📂 `asset` | Folder containning static files and source code for development |
 |  📂 `dist` |  Packed files built by `gulpfiles.js`, containing the filnal files to be used as the web page |
+|  📂 `doc` |  Final version to deploy on the website  |
 |  📃 `gulpfile.js` |  Gulp config file to build the project into `dist` folder |
 |   |   |
 
