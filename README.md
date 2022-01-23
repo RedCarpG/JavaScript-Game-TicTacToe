@@ -43,17 +43,17 @@ SVGs are designed using the tools from website **[Figma](https://www.figma.com/)
 
 Marks:
 
-![x](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/x.svg?raw=true)
-
-![o](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/o.svg?raw=true)
+|     |     |
+| --  | --  |
+| ![x](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/x.svg?raw=true) | ![o](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/o.svg?raw=true) |
+|     |     |
 
 Cursors:
 
-![cursor](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/cursor.svg?raw=true)
-
-![cursor-yes](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/cursor-yes.svg?raw=true)
-
-![cursor-no](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/cursor-no.svg?raw=true)
+|     |     |     |
+| --  | --  | --  |
+| ![cursor](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/cursor.svg?raw=true) | ![cursor-yes](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/cursor-yes.svg?raw=true) | ![cursor-no](https://github.com/RedCarpG/DOCS/blob/main/tictactoe/cursor-no.svg?raw=true) |
+|     |     |     |
 
 ### ✒ **Font**
 
