@@ -26,11 +26,11 @@ A **Tic Tac Toe** game designed by `JavaScript`. Animated by `JavaScript` + `CSS
 
 ## File size
 
-|               |           |           |           |           |
-| -----         | -----     | -----     | -----     | -----     |
-| **Total**     | Font      | JS        | CSS       | Images    |
-| **55.1 KB**   | 16.2 KB   | 4.21 KB   | 9.91 KB   | 23 KB     |
-|               |           |           |           |           |
+|               |           |           |           |           |         |
+| -----         | -----     | -----     | -----     | -----     | -----   |
+| **Total**     | Font      | JS        | CSS       | Images    | HTML    |
+| **55.1 KB**   | 16.2 KB   | 4.21 KB   | 9.91 KB   | 23 KB     | 1.72 KB |
+|               |           |           |           |           |         |
 
 
 ## 💡 Design
