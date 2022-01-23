@@ -10,16 +10,16 @@
 /* FONTs */
 @font-face {
     font-family: font_main;
-    src: url("../../font/kg-red-hands/KGRedHands.ttf");
+    src: url("../font/kg-red-hands/KGRedHands.ttf");
 }
 @font-face {
     font-family: font_button;
-    src: url("../../font/kg-red-hands/KGRedHandsOutline.ttf");
+    src: url("../font/kg-red-hands/KGRedHandsOutline.ttf");
 }
 
 /* MAIN */
 #tictactoe {
-    cursor: url("../../img/cursor/cursor.svg"), auto;
+    cursor: url("../img/cursor/cursor.svg"), auto;
     overflow: hidden;
     width: 100vw;
     height: 100vh;
@@ -82,7 +82,7 @@
                     justify-content: center;
                     align-items: center;
     
-                    cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
+                    cursor: url("../img/cursor/cursor-yes.svg"), pointer;
                     
                     .mark-img,
                     .mark-img-hover {
@@ -97,7 +97,7 @@
 
                     &.x, 
                     &.o {
-                        cursor: url("../../img/cursor/cursor-no.svg"), not-allowed;
+                        cursor: url("../img/cursor/cursor-no.svg"), not-allowed;
                     }
 
                     // Hover animation
@@ -297,6 +297,8 @@
             font-size: min(15vh, 15vw);
             letter-spacing: .05em;
             .mark-img {
+                
+                pointer-events: none;
                 width: 1em;
                 animation: spin 1s alternate infinite;
             }
@@ -314,7 +316,7 @@
             padding: .5em 1em;
             text-decoration: none;
             text-align: center;
-            cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
+            cursor: url("../img/cursor/cursor-yes.svg"), pointer;
             user-select: none;
             color: white;
             
@@ -361,7 +363,7 @@
             display: flex;
             gap: 1rem;
             a {
-                cursor: url("../../img/cursor/cursor-yes.svg"), pointer;
+                cursor: url("../img/cursor/cursor-yes.svg"), pointer;
                 width: auto;
                 height: auto;
                 img {

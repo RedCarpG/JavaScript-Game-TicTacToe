@@ -56,8 +56,8 @@ function handleMouseOver(e) {
     const currentClass = circleTurn ? O_CLASS : X_CLASS
     
     cell.innerHTML = currentClass == X_CLASS ? 
-        "<embed class=\"mark-img-hover\" src=\"./img/x.svg\" type=\"image/svg+xml\" />" : 
-        "<embed class=\"mark-img-hover\" src=\"./img/o.svg\" type=\"image/svg+xml\" />"
+        "<embed class=\"mark-img-hover\" src=\"./dist/img/x.svg\" type=\"image/svg+xml\" />" : 
+        "<embed class=\"mark-img-hover\" src=\"./dist/img/o.svg\" type=\"image/svg+xml\" />"
 }
 function handleMouseOut(e) {
     const cell = e.target
@@ -82,8 +82,8 @@ function handleRestart(e) {
 function placeMark(cell, markClass) {
     cell.classList.add(markClass)
     cell.innerHTML = markClass == X_CLASS ? 
-        "<embed class=\"mark-img\" src=\"./img/x.svg\" type=\"image/svg+xml\" />" : 
-        "<embed class=\"mark-img\" src=\"./img/o.svg\" type=\"image/svg+xml\" />"
+        "<embed class=\"mark-img\" src=\"./dist/img/x.svg\" type=\"image/svg+xml\" />" : 
+        "<embed class=\"mark-img\" src=\"./dist/img/o.svg\" type=\"image/svg+xml\" />"
 
     cell.addEventListener("animationend", () => {
         cell.classList.remove("in")
@@ -137,8 +137,8 @@ function endGame(isDraw) {
         endGameMessage.innerText = "Draw!"
     } else {
         endGameMessage.innerHTML = `${circleTurn ? 
-            "<embed class=\"mark-img\" src=\"./img/o.svg\" type=\"image/svg+xml\" />": 
-            "<embed class=\"mark-img\" src=\"./img/x.svg\" type=\"image/svg+xml\" />"} Wins!`
+            "<embed class=\"mark-img\" src=\"./dist/img/o.svg\" type=\"image/svg+xml\" />": 
+            "<embed class=\"mark-img\" src=\"./dist/img/x.svg\" type=\"image/svg+xml\" />"} Wins!`
     }
     setTimeout(() => {
         endGameInterface.classList.remove("hidden")
