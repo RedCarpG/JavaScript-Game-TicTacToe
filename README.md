@@ -22,8 +22,7 @@ A **Tic Tac Toe** game designed by `JavaScript`. Animated by `JavaScript` + `CSS
 | --------------------------------- |   --------------------------------- |
 |   |   |
 |  📂 `asset` | Folder containning static files and source code for development |
-|  📂 `dist` |  Packed files built by `gulpfiles.js`, containing the filnal files to be used as the web page |
-|  📂 `doc` |  Final version to deploy on the website  |
+|  📂 `build` |  Packed files built by `gulpfiles.js`, containing the filnal files to be used as the web page |
 |  📃 `gulpfile.js` |  Gulp config file to build the project into `dist` folder |
 |   |   |
 
