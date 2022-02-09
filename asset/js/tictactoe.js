@@ -51,7 +51,8 @@ function handleClick(e) {
 }
 function handleMouseOver(e) {
     const cell = e.target
-    if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS)) return
+    if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS)
+        || cell.classList.contains('out') || cell.classList.contains('in')) return
 
     const currentClass = circleTurn ? O_CLASS : X_CLASS
     
@@ -61,8 +62,9 @@ function handleMouseOver(e) {
 }
 function handleMouseOut(e) {
     const cell = e.target
-    if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS)) return
-
+    if (cell.classList.contains(X_CLASS) || cell.classList.contains(O_CLASS)
+        || cell.classList.contains('out') || cell.classList.contains('in')) return
+        
     cell.innerHTML = ""
 }
 
@@ -95,13 +97,14 @@ function removeMark(cell) {
     cell.classList.remove(X_CLASS)
     cell.classList.remove(O_CLASS)
     cell.classList.remove("glow")
+    cell.classList.add("out")
+    console.log( "Remove Mark: ", cell)
     cell.addEventListener("animationend", () => {
+        console.log( "End remove Mark: ", cell)
         cell.classList.remove("out")
         cell.innerHTML = ""
     }, { once: true })
-    cell.classList.add("out")
 }
-
 
 function switchTurns() {
     circleTurn = !circleTurn

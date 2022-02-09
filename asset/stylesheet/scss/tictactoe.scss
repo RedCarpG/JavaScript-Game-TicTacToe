@@ -101,7 +101,7 @@
                     }
 
                     // Hover animation
-                    &:hover .mark-img-hover {
+                    &:not(.in, .out):hover .mark-img-hover {
                         animation: hoverMark .5s;
                         -webkit-animation: hoverMark .5s;
                         opacity: .5;
@@ -132,7 +132,6 @@
                             }
                         }
                     }
-    
                     &.out {
                         pointer-events: none;
                         .mark-img {

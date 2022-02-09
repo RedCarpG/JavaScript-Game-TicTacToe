@@ -95,7 +95,7 @@ body {
 #tictactoe .main-page .board .cells .cell.x, #tictactoe .main-page .board .cells .cell.o {
   cursor: url("../img/cursor/cursor-no.svg"), not-allowed;
 }
-#tictactoe .main-page .board .cells .cell:hover .mark-img-hover {
+#tictactoe .main-page .board .cells .cell:not(.in, .out):hover .mark-img-hover {
   animation: hoverMark 0.5s;
   -webkit-animation: hoverMark 0.5s;
   opacity: 0.5;
