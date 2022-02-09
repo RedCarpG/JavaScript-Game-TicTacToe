@@ -1,5 +1,6 @@
 /** Gulp.js Configurations */ 
 import gulp from 'gulp';
+import filter from 'gulp-filter';
 
 // CSS / SCSS
 import gulpSass from 'gulp-sass';
@@ -19,7 +20,7 @@ import svgo from 'imagemin-svgo';
 import fontSpider from 'gulp-font-spider';
 
 const asset = './asset'
-const dist = './dist'
+const dist = './build'
 
 /* SCSS */
 const compileSCSS = () => {
@@ -89,17 +90,23 @@ const minSVG = () => {
 
 /* Font */
 const moveFont = () => {
+  return gulp.src(`${asset}/font/**/*.ttf`)
+    .pipe(gulp.dest(`${dist}/font/`))
+}
+const minFont = () => {
   console.log(`---------- gulp: Minimizing font files`)
+  const config = {
+    backup: false,
+  }
   return gulp.src(`${asset}/font/font-demo.html`)
-    .pipe(fontSpider())
+    .pipe(fontSpider(config))
+    .pipe(filter(["**/*.ttf"]))
     .pipe(gulp.dest(`${dist}/font`))
 }
 
 /* Watch SCSS/CSS */
-const watchCss = () => {  
-  gulp.watch(`${asset}/stylesheet/css/**/*.css`, gulp.series('css'));
-}
 const watchScss = () => {  
+  gulp.watch(`${asset}/stylesheet/css/**/*.css`, gulp.series('css'));
   gulp.watch(`${asset}/stylesheet/scss/**/*.scss`, gulp.series('scss', 'css'));
 }
 /* Watch HTML/JS */
@@ -107,8 +114,15 @@ const watchJS = () => {
   gulp.watch(`${asset}/js/**/*.js`, gulp.series('html', 'js'));
 }
 
-const style = gulp.series(compileSCSS, compileCSS);
-const build = gulp.series(compileSCSS, compileCSS, minSVG, compileJS, minHTML);
+const watchAll = () => {  
+  gulp.watch(`${asset}/stylesheet/css/**/*.css`, gulp.series('css'));
+  gulp.watch(`${asset}/stylesheet/scss/**/*.scss`, gulp.series('scss', 'css'));
+  gulp.watch(`${asset}/js/**/*.js`, gulp.series('html', 'js'));
+}
+
+const build_font = gulp.series(moveFont, minFont);
+const build_style = gulp.series(compileSCSS, compileCSS);
+const build = gulp.series(build_style, compileJS, build_font, minSVG, minHTML);
 
 
 export { 
@@ -117,12 +131,13 @@ export {
   minSVG as svg, 
   compileCSS as css, 
   compileSCSS as scss,
-  moveFont as font
+  build_font,
+  build_style,
+  build
 }
 export { 
-  watchCss as watch_css, 
   watchScss as watch_scss,
-  watchJS as watch_js
+  watchJS as watch_js,
+  watchAll as watch 
 }
-export { style };
 export default build;
