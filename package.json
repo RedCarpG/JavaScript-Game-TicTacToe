@@ -21,11 +21,12 @@
   "devDependencies": {
     "autoprefixer": "^10.4.2",
     "cssnano": "^5.0.15",
-    "font-spider": "^1.3.5",
     "gh-pages": "^3.2.3",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-font-spider": "^0.3.6",
+    "gulp-filter": "^7.0.0",
+    "gulp-font-spider": "^0.2.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^8.0.0",
     "gulp-postcss": "^9.0.1",
@@ -33,8 +34,5 @@
     "gulp-terser": "^2.1.0",
     "imagemin-svgo": "^10.0.1",
     "sass": "^1.49.0"
-  },
-  "dependencies": {
-    "gulp-babel": "^8.0.0"
   }
 }
